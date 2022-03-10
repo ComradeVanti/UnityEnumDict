@@ -1,0 +1,18 @@
+{
+  "name": "comradevanti.enumdict",
+  "version": "1.0.0",
+  "description": "Dictionary type with an entry for each value of an enum",
+  "displayName": "EnumDict",
+  "unity": "2020.3",
+  "author": {
+    "name": "ComradeVanti",
+    "url": "https://github.com/ComradeVanti"
+  },
+  "keywords": [
+    "enum",
+    "dictionary",
+    "key-value",
+    "utility"
+  ],
+  "license": "Unlicense"
+}
