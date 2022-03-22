@@ -1,17 +1,28 @@
 using System;
+using System.Linq;
 using UnityEngine;
+using static ComradeVanti.EnumDict.EnumUtil;
 
 namespace ComradeVanti.EnumDict
 {
 
     [Serializable]
-    public struct EnumDict<TEnum, TData>
+    public class EnumDict<TEnum, TData>
         where TEnum : Enum
     {
 
         [SerializeField] private Entry[] entries;
-        
-        
+
+
+        public EnumDict() =>
+            entries = GetEnumValues<TEnum>()
+                      .Select(it => new Entry(it, default))
+                      .ToArray();
+
+
+        public TData Get(TEnum key) => 
+            entries.First(it => it.Enum.Equals(key)).Value;
+
 
         [Serializable]
         private struct Entry
@@ -20,7 +31,7 @@ namespace ComradeVanti.EnumDict
             [SerializeField] private TEnum @enum;
             [SerializeField] private TData value;
 
-            
+
             public TEnum Enum => @enum;
 
             public TData Value => value;
