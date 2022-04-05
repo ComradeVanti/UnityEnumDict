@@ -11,16 +11,20 @@ namespace ComradeVanti.EnumDict
         where TEnum : Enum
     {
 
+        [SerializeField] private string enumTypeName;
         [SerializeField] private Entry[] entries;
 
 
-        public EnumDict() =>
+        public EnumDict()
+        {
+            enumTypeName = typeof(TEnum).AssemblyQualifiedName;
             entries = GetEnumValues<TEnum>()
                       .Select(it => new Entry(it, default))
                       .ToArray();
+        }
 
 
-        public TData Get(TEnum key) => 
+        public TData Get(TEnum key) =>
             entries.First(it => it.Enum.Equals(key)).Value;
 
 
