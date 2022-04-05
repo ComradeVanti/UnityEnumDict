@@ -1,5 +1,5 @@
 {
-    "name": "ComradeVanti.EnumDict.Editor.Tests",
+    "name": "ComradeVanti.EnumDict.Tests",
     "rootNamespace": "ComradeVanti.EnumDict",
     "references": [
         "GUID:423cf218955b75746b308bf4a243520b",
