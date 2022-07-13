@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using static ComradeVanti.EnumDict.EnumUtil;
 
@@ -29,6 +30,8 @@ namespace ComradeVanti.EnumDict
 
         public TData Get(TEnum key) =>
             entries.First(it => it.Enum.Equals(key)).Value;
+        
+        public TData this[TEnum key] => Get(key);
 
 
         [Serializable]
