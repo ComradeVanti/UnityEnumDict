@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -22,19 +23,34 @@ namespace ComradeVanti.EnumDict
             dict.FindPropertyRelative("entries")
                 .GetArrayElementAtIndex(index);
 
+        private static SerializedProperty[] GetEntries(SerializedProperty dict)
+        {
+            var count = GetEntryCount(dict);
+            return Enumerable.Range(0, count)
+                             .Select(i => GetEntry(dict, i))
+                             .ToArray();
+        }
+
         private static Type GetEnumType(SerializedProperty dict) =>
             Type.GetType(dict.FindPropertyRelative("enumTypeName").stringValue);
 
         private static string GetName(SerializedProperty entry, Type enumType) =>
             Enum.GetName(enumType, entry.FindPropertyRelative("enum").intValue);
 
+        private static float GetHeight(SerializedProperty entry)
+        {
+            var prop =  entry.FindPropertyRelative("value");
+            return  EditorGUI.GetPropertyHeight(prop, true);
+        }
+
 
         public override float GetPropertyHeight(SerializedProperty dict, GUIContent label)
         {
             var entryCount = GetEntryCount(dict);
-            var entryHeight = EditorGUI.GetPropertyHeight(GetEntry(dict, 0).FindPropertyRelative("value"),true);
-            
-            return LabelHeight + (SpacingHeight + entryHeight) * entryCount;
+            var entries = GetEntries(dict);
+            var entryHeightSum = entries.Select(GetHeight).Sum();
+
+            return LabelHeight + SpacingHeight * entryCount + entryHeightSum;
         }
 
         public override void OnGUI(Rect position, SerializedProperty dict, GUIContent label)
@@ -50,43 +66,23 @@ namespace ComradeVanti.EnumDict
                 EditorGUI.LabelField(rect, label);
             }
 
-            void DrawEntry(int index)
+            float DrawEntry(float y, int index)
             {
                 var entry = GetEntry(dict, index);
-                var height = EditorGUI.GetPropertyHeight(entry.FindPropertyRelative("value"),true);
+                var valueProp = entry.FindPropertyRelative("value");
+                var height = EditorGUI.GetPropertyHeight(valueProp, true);
 
-                var yOffset = LabelHeight +
-                              SpacingHeight * (index + 1) +
-                              height * index;
+                var rect = RelativeRect(EntryIndent, y, position.width - EntryIndent, height);
+                var name = GetName(entry, enumType);
+                EditorGUI.PropertyField(rect, valueProp, new GUIContent(name), true);
 
-                void DrawEntryLabel()
-                {
-                    var name = GetName(entry, enumType);
-
-                    var width = (position.width - EntryIndent) * 0.25f - SpacingWidth;
-                    var rect = RelativeRect(EntryIndent, yOffset, width, height);
-
-                    EditorGUI.LabelField(rect, name);
-                }
-
-                void DrawEntryValueField()
-                {
-                    var prop = entry.FindPropertyRelative("value");
-
-                    var width = (position.width - EntryIndent) * 0.75f;
-                    var x = EntryIndent + position.width * 0.25f;
-                    var rect = RelativeRect(x, yOffset, width, height);
-
-                    EditorGUI.PropertyField(rect, prop, GUIContent.none, true);
-                }
-
-                DrawEntryLabel();
-                DrawEntryValueField();
+                return y + height + SpacingHeight;
             }
 
             DrawLabel();
+            var y = (float)LabelHeight + SpacingHeight;
             for (var i = 0; i < GetEntryCount(dict); i++)
-                DrawEntry(i);
+                y = DrawEntry(y, i);
         }
 
     }
