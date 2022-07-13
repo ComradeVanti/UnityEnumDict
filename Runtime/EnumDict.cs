@@ -11,7 +11,9 @@ namespace ComradeVanti.EnumDict
         where TEnum : Enum
     {
 
+#if UNITY_EDITOR
         [SerializeField] private string enumTypeName;
+#endif
         [SerializeField] private Entry[] entries;
 
 
