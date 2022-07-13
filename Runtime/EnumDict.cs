@@ -13,6 +13,7 @@ namespace ComradeVanti.EnumDict
 
 #if UNITY_EDITOR
         [SerializeField] private string enumTypeName;
+        [SerializeField] private bool isOpen;
 #endif
         [SerializeField] private Entry[] entries;
 

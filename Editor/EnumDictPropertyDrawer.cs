@@ -48,13 +48,17 @@ namespace ComradeVanti.EnumDict
             var entryCount = GetEntryCount(dict);
             var entries = GetEntries(dict);
             var entryHeightSum = entries.Select(GetHeight).Sum();
+            var isOpen = dict.FindPropertyRelative("isOpen").boolValue;
+            var valueHeight = isOpen ? SpacingHeight * entryCount + entryHeightSum : 0;
 
-            return LabelHeight + SpacingHeight * entryCount + entryHeightSum;
+            return LabelHeight + valueHeight;
         }
 
         public override void OnGUI(Rect position, SerializedProperty dict, GUIContent label)
         {
             var enumType = GetEnumType(dict);
+            var isOpenProp = dict.FindPropertyRelative("isOpen");
+            var isOpen = isOpenProp.boolValue;
 
             Rect RelativeRect(float dx, float dy, float w, float h) =>
                 new Rect(position.x + dx, position.y + dy, w, h);
@@ -62,7 +66,7 @@ namespace ComradeVanti.EnumDict
             void DrawLabel()
             {
                 var rect = RelativeRect(0, 0, position.width, LabelHeight);
-                EditorGUI.LabelField(rect, label);
+                isOpenProp.boolValue = EditorGUI.Foldout(rect,isOpen, label);
             }
 
             float DrawEntry(float y, int index)
@@ -79,9 +83,13 @@ namespace ComradeVanti.EnumDict
             }
 
             DrawLabel();
-            var y = (float)LabelHeight + SpacingHeight;
-            for (var i = 0; i < GetEntryCount(dict); i++)
-                y = DrawEntry(y, i);
+
+            if (isOpen)
+            {
+                var y = (float)LabelHeight + SpacingHeight;
+                for (var i = 0; i < GetEntryCount(dict); i++)
+                    y = DrawEntry(y, i);
+            }
         }
 
     }
