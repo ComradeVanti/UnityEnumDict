@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -13,8 +14,7 @@ namespace ComradeVanti.EnumDict
         private const int LabelHeight = 20;
         private const int SpacingHeight = 2;
         private const int EntryIndent = 5;
-        private const int SpacingWidth = 5;
-
+        
 
         private static int GetEntryCount(SerializedProperty dict) =>
             dict.FindPropertyRelative("entries").arraySize;
@@ -23,12 +23,11 @@ namespace ComradeVanti.EnumDict
             dict.FindPropertyRelative("entries")
                 .GetArrayElementAtIndex(index);
 
-        private static SerializedProperty[] GetEntries(SerializedProperty dict)
+        private static IEnumerable<SerializedProperty> GetEntries(SerializedProperty dict)
         {
             var count = GetEntryCount(dict);
             return Enumerable.Range(0, count)
-                             .Select(i => GetEntry(dict, i))
-                             .ToArray();
+                             .Select(i => GetEntry(dict, i));
         }
 
         private static Type GetEnumType(SerializedProperty dict) =>
