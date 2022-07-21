@@ -1,4 +1,4 @@
-namespace ComradeVanti.EnumDict
+namespace Dev.ComradeVanti.EnumDict
 {
 
     public enum Colors

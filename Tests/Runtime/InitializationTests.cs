@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace ComradeVanti.EnumDict
+namespace Dev.ComradeVanti.EnumDict
 {
 
     [TestFixture]

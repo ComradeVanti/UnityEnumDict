@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ComradeVanti.EnumDict
+namespace Dev.ComradeVanti.EnumDict
 {
 
     internal static class EnumUtil

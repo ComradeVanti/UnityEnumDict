@@ -11,6 +11,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - This changelog
 - OpenUPM installation-info to readme
 
+### Changed
+
+- Package-name and namespaces to fit OpenUPM policy
+
 ## 1.0.1 - 2022-07-14
 
 ### Added

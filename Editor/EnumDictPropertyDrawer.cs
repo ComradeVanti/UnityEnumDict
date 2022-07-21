@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace ComradeVanti.EnumDict
+namespace Dev.ComradeVanti.EnumDict
 {
 
     [CustomPropertyDrawer(typeof(EnumDict<,>))]

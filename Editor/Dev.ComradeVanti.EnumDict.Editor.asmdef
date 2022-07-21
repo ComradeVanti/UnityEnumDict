@@ -1,8 +1,12 @@
 {
-    "name": "ComradeVanti.EnumDict",
-    "rootNamespace": "ComradeVanti.EnumDict",
-    "references": [],
-    "includePlatforms": [],
+    "name": "Dev.ComradeVanti.EnumDict.Editor",
+    "rootNamespace": "Dev.ComradeVanti.EnumDict",
+    "references": [
+        "GUID:423cf218955b75746b308bf4a243520b"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

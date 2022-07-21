@@ -1,10 +1,9 @@
 using System;
 using System.Linq;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
-using static ComradeVanti.EnumDict.EnumUtil;
+using static Dev.ComradeVanti.EnumDict.EnumUtil;
 
-namespace ComradeVanti.EnumDict
+namespace Dev.ComradeVanti.EnumDict
 {
 
     [Serializable]
