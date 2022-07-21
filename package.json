@@ -1,6 +1,6 @@
 {
   "name": "comradevanti.enumdict",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Dictionary type with an entry for each value of an enum",
   "displayName": "EnumDict",
   "unity": "2020.3",
