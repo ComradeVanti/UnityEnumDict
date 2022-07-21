@@ -5,7 +5,11 @@ setting values in the inspector and serialization.
 
 ## Installation
 
-Install as [git dependency](https://docs.unity3d.com/Manual/upm-ui-giturl.html)
+The quickest way is to install via [OpenUPM](https://openupm.com)
+using `openupm add dev.comradevanti.enum-dict`.
+
+Or install manually
+as [git dependency](https://docs.unity3d.com/Manual/upm-ui-giturl.html)
 from `https://github.com/ComradeVanti/EnumDict.git` or download as zip
 and [import locally](https://docs.unity3d.com/Manual/upm-ui-local.html).
 
