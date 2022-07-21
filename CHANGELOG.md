@@ -10,6 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - This changelog
 - OpenUPM installation-info to readme
+- OpenUPM badge to readme
 
 ### Changed
 

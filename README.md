@@ -1,5 +1,7 @@
 # EnumDict
 
+[![openupm](https://img.shields.io/npm/v/dev.comradevanti.enum-dict?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/dev.comradevanti.enum-dict/)
+
 A Unity package for associating a value with each case of an enum. Allows
 setting values in the inspector and serialization.
 
