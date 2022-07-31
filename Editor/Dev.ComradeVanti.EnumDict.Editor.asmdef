@@ -2,7 +2,7 @@
     "name": "Dev.ComradeVanti.EnumDict.Editor",
     "rootNamespace": "Dev.ComradeVanti.EnumDict",
     "references": [
-        "GUID:423cf218955b75746b308bf4a243520b"
+        "GUID:83e789777d6d6a1418571ad9121f1ab9"
     ],
     "includePlatforms": [
         "Editor"
