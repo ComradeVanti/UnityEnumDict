@@ -14,5 +14,6 @@
     "key-value",
     "utility"
   ],
+  "changelogUrl": "https://github.com/ComradeVanti/UnityEnumDict/blob/main/CHANGELOG.md",
   "license": "Unlicense"
 }

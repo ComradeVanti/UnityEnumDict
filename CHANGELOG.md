@@ -6,6 +6,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Upcoming
 
+### Added
+
+- Link to changelog in package manifest
+
 ### Changed
 
 - Change links to point to new repo url
