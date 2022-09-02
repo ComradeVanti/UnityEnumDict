@@ -12,7 +12,7 @@ using `openupm add dev.comradevanti.enum-dict`.
 
 Or install manually
 as [git dependency](https://docs.unity3d.com/Manual/upm-ui-giturl.html)
-from `https://github.com/ComradeVanti/EnumDict.git` or download as zip
+from `https://github.com/ComradeVanti/UnityEnumDict.git` or download as zip
 and [import locally](https://docs.unity3d.com/Manual/upm-ui-local.html).
 
 ## Usage

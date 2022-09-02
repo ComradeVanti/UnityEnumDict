@@ -4,6 +4,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Upcoming
+
+### Changed
+
+- Change links to point to new repo url
+
 ## 1.0.3 - 2022-07-31
 
 ### Fixed
