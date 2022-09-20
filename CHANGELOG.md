@@ -9,8 +9,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - Editor reference in runtime code
+- Incorrect date format in changelog
 
-## 1.0.4 - 22-09-02
+## 1.0.4 - 2022-09-02
 
 ### Added
 
