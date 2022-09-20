@@ -18,6 +18,7 @@ namespace Dev.ComradeVanti.EnumDict
         [SerializeField] private Entry[] entries;
 
 
+#if UNITY_EDITOR
         public EnumDict()
         {
             enumTypeName = typeof(TEnum).AssemblyQualifiedName;
@@ -25,6 +26,7 @@ namespace Dev.ComradeVanti.EnumDict
                       .Select(it => new Entry(it, default))
                       .ToArray();
         }
+#endif
 
 
         public TData Get(TEnum key) =>
