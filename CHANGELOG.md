@@ -14,6 +14,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Create enum-dicts with predefined values using new constructor
 - A few tests
+- Xml documentation
 
 ## 1.0.5 - 2022-09-22
 
