@@ -6,7 +6,7 @@ namespace Dev.ComradeVanti.EnumDict
 {
 
     [Serializable]
-    public struct DictEntry<TEnum, TValue>
+    internal struct DictEntry<TEnum, TValue>
     {
 
         [SerializeField] private TEnum key;
