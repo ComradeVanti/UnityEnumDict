@@ -1,21 +1,21 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace Dev.ComradeVanti.EnumDict
 {
-
     /// <summary>
     ///     Serializes a value for each entry in an enum
     /// </summary>
     /// <typeparam name="TEnum">The enum type</typeparam>
     /// <typeparam name="TData">The value type</typeparam>
     [Serializable]
-    public class EnumDict<TEnum, TData> : ISerializationCallbackReceiver
+    public class EnumDict<TEnum, TData>
+        : ISerializationCallbackReceiver, IReadOnlyDictionary<TEnum, TData>
         where TEnum : Enum
     {
-
         [SerializeField] private DictEntry<TEnum, TData>[] entries =
             Array.Empty<DictEntry<TEnum, TData>>();
 
@@ -34,11 +34,19 @@ namespace Dev.ComradeVanti.EnumDict
         public TData this[TEnum key] =>
             Get(key);
 
+        public IEnumerable<TEnum> Keys => dictionary.Keys;
+
+        public IEnumerable<TData> Values => dictionary.Values;
+
+        public int Count => dictionary.Count;
+
 
         /// <summary>
         ///     Creates a new enum-dict with the default value for TData on each key
         /// </summary>
-        public EnumDict() { }
+        public EnumDict()
+        {
+        }
 
         /// <summary>
         ///     Creates a new enum-dict with the specified key-value pairs. Missing keys
@@ -52,13 +60,19 @@ namespace Dev.ComradeVanti.EnumDict
         }
 
 
+        public bool ContainsKey(TEnum key) =>
+            dictionary.ContainsKey(key);
+
+        public bool TryGetValue(TEnum key, out TData value) =>
+            dictionary.TryGetValue(key, out value);
+
         public void OnBeforeSerialize() =>
             entries = EnumUtil.GetEnumValues<TEnum>()
-                              .Select(key =>
-                              {
-                                  var value = this[key];
-                                  return new DictEntry<TEnum, TData>(key, value);
-                              }).ToArray();
+                .Select(key =>
+                {
+                    var value = this[key];
+                    return new DictEntry<TEnum, TData>(key, value);
+                }).ToArray();
 
         public void OnAfterDeserialize()
         {
@@ -81,6 +95,9 @@ namespace Dev.ComradeVanti.EnumDict
                 ? value
                 : default;
 
-    }
+        public IEnumerator<KeyValuePair<TEnum, TData>> GetEnumerator() =>
+            dictionary.GetEnumerator();
 
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
 }
