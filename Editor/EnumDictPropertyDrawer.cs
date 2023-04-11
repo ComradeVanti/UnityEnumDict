@@ -6,11 +6,9 @@ using UnityEngine;
 
 namespace Dev.ComradeVanti.EnumDict
 {
-
     [CustomPropertyDrawer(typeof(EnumDict<,>))]
     public class EnumDictPropertyDrawer : PropertyDrawer
     {
-
         private const int LabelHeight = 20;
         private const int SpacingHeight = 2;
         private const int EntryIndent = 5;
@@ -27,7 +25,7 @@ namespace Dev.ComradeVanti.EnumDict
         {
             var count = GetEntryCount(dict);
             return Enumerable.Range(0, count)
-                             .Select(i => GetEntry(dict, i));
+                .Select(i => GetEntry(dict, i));
         }
 
         private Type GetEnumType() =>
@@ -85,12 +83,10 @@ namespace Dev.ComradeVanti.EnumDict
 
             if (isOpen)
             {
-                var y = (float)LabelHeight + SpacingHeight;
+                var y = (float) LabelHeight + SpacingHeight;
                 for (var i = 0; i < GetEntryCount(dict); i++)
                     y = DrawEntry(y, i);
             }
         }
-
     }
-
 }
