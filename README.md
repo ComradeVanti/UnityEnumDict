@@ -15,6 +15,8 @@ as [git dependency](https://docs.unity3d.com/Manual/upm-ui-giturl.html)
 from `https://github.com/ComradeVanti/UnityEnumDict.git` or download as zip
 and [import locally](https://docs.unity3d.com/Manual/upm-ui-local.html).
 
+Works for Unity 2020.x and upwards.
+
 ## Usage
 
 Say, you want to associate a movement-force for a rigidbody with each possible

@@ -9,6 +9,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - Enum-dict now implements `IReadOnlyDictionary`
+- Unity version info in readme
 
 ## 1.1.0 - 2022-11-08
 
