@@ -6,6 +6,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Upcoming
 
+## 1.2.0 - 2023-04-11
+
 ### Added
 
 - Enum-dict now implements `IReadOnlyDictionary`
